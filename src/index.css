@@ -12,3 +12,22 @@ html,body{
   height: 100%;
   width: 100%;
 }
+
+h1{
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.active{
+ color:black;
+ font-size: 25px;
+ transition: ease-in-out;
+ background-color: rgb(101, 84, 113);
+ color:cornsilk;
+
+}
+.active:hover{
+  background-color: rgb(101, 84, 113);
+  transition-duration: 500ms;
+  padding: 2px 5px;
+}

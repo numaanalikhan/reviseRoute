@@ -1,20 +1,25 @@
-import React from "react";
-import {Routes,Route} from "react-router-dom";
-import Home from "./Components/Home";
-import About from './Components/About'
-import NotFound from "./Components/NotFound";
+import React , {useState} from "react"
 import Header from "./Components/Header";
-function App(){
+import Home from "./Components/Home";
+import Product from "./Components/Product";
+import {  Route,Routes } from "react-router-dom";
+import NotFound from "./Components/NotFound";
+import Specification from './Components/Specification'
+
+function App (){
+  var [isLoggedIn,setIsLoggedIN] = useState(false);
   return(
     <>
-    <Header/>
+    {console.log("App is rendered at initial load ")}
+    <Header isLoggedIn={isLoggedIn} setIsLoggedIN={setIsLoggedIN}/>
     <Routes>
-      <Route path="/" element={<Home/>}/>
-      <Route path="/about" element={<About/>}/>
-      <Route path="*" element={<NotFound/>}/>
+      <Route path="/" element={<Home/>} />
+    {isLoggedIn===true ?  <Route path="/products" element={<Product/>}/>:""}
+      <Route path="/*" element={<NotFound/>}/>
+
+      <Route path="/product/:productId" element={<Specification/>}/>
     </Routes>
     </>
   )
 }
-
 export default App;
